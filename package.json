@@ -3,7 +3,7 @@
   "displayName": "vscode-workspace-switcher-with-tmux",
   "description": "Easily switch between workspaces",
   "version": "1.15.3",
-  "publisher": "sadesyllas",
+  "publisher": "sekapi",
   "homepage": "https://github.com/2ndPINEW/vscode-workspace-switcher-with-tmux",
   "repository": {
     "type": "git",
