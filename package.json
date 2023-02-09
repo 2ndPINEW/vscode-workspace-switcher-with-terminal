@@ -4,13 +4,13 @@
   "description": "Easily switch between workspaces",
   "version": "1.15.3",
   "publisher": "sadesyllas",
-  "homepage": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux",
+  "homepage": "https://github.com/2ndPINEW/vscode-workspace-switcher-with-tmux",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux.git"
+    "url": "https://github.com/2ndPINEW/vscode-workspace-switcher-with-tmux.git"
   },
   "bugs": {
-    "url": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux/issues"
+    "url": "https://github.com/2ndPINEW/vscode-workspace-switcher-with-tmux/issues"
   },
   "engines": {
     "vscode": "^1.32.0"
