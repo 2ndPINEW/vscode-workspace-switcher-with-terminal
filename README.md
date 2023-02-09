@@ -2,6 +2,10 @@
 
 Easily switch between workspaces with tmux
 
+forked from [vscode-workspace-switcher](https://github.com/sadesyllas/vscode-workspace-switcher)
+
+ワークスペースを切り替えた時に、ワークスペースの名前と一致するtmuxウィンドウに切り替えます
+
 ## How to use
 
 1. Set the extension's configuration option `vscodeWorkspaceSwitcherWithTmux.paths` to an array of folder globs, representing the folders where your `.code-workspace` files are stored
