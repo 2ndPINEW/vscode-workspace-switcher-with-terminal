@@ -6,6 +6,7 @@ import * as vscode from 'vscode';
 import * as process from 'process';
 import * as glob from 'fast-glob';
 import * as folderStateCache from './tree-view/explorer/folder-state-cache';
+import * as cp from "child_process";
 import { WorkspaceEntry } from './model/workspace-entry';
 
 export function getWorkspaceEntryFolders(paths: string[] | null = null): path.ParsedPath[] {
@@ -95,12 +96,31 @@ export function getFirstWorkspaceFolderName(): string | undefined {
   return (vscode.workspace.workspaceFolders || [{ name: undefined }])[0].name;
 }
 
-export function openWorkspace(workspaceEntry: WorkspaceEntry, inNewWindow: boolean = false) {
+export async function openWorkspace(workspaceEntry: WorkspaceEntry, inNewWindow: boolean = false) {
   const workspaceUri = vscode.Uri.file(workspaceEntry.path);
 
   // VSCode handles errors with a popup.
   vscode.commands.executeCommand('vscode.openFolder', workspaceUri, inNewWindow);
+  await switchTmuxWindow(workspaceEntry.name)
 }
+
+async function switchTmuxWindow (windowName: string): Promise<void> {
+  try {
+    await execShell(`tmux selectw -t ${windowName}`)
+  } catch {
+  }
+}
+
+function execShell (cmd: string) {
+  return new Promise<string>((resolve, reject) => {
+    cp.exec(cmd, (err: any, out: any) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(out);
+    });
+  });
+};
 
 export function deleteWorkspace(workspaceEntry: WorkspaceEntry, prompt: boolean) {
   if (prompt) {
