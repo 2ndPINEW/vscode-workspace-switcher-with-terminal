@@ -13,43 +13,43 @@ import { TreeDataProvider } from './tree-view/explorer/tree-data-provider';
 export function activate(context: vscode.ExtensionContext) {
   const disposables = [];
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.saveWorkspace',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.saveWorkspace',
     () => saveWorkspacePrompt()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.openWorkspace',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.openWorkspace',
     (workspaceEntry?: WorkspaceEntry) => workspaceEntry
       ? util.openWorkspace(workspaceEntry, false)
       : openWorkspacePrompt(false)));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.openWorkspaceInNewWindow',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.openWorkspaceInNewWindow',
     (workspaceEntryTreeItem?: WorkspaceEntryTreeItem) => workspaceEntryTreeItem
       ? util.openWorkspace(workspaceEntryTreeItem.workspaceEntry, true)
       : openWorkspacePrompt(true)));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.deleteWorkspace',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.deleteWorkspace',
     (workspaceEntryTreeItem?: WorkspaceEntryTreeItem) => workspaceEntryTreeItem
       ? util.deleteWorkspace(workspaceEntryTreeItem.workspaceEntry, true)
       : deleteWorkspacePrompt()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.openFolderWorkspaces',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.openFolderWorkspaces',
     (workspaceEntryTreeFolder: WorkspaceEntryTreeFolder) => util.openFolderWorkspaces(workspaceEntryTreeFolder.path)));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.reloadWorkspaces',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.reloadWorkspaces',
     () => util.refreshTreeData()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.closeWorkspace',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.closeWorkspace',
     () => util.closeWorkspace()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.showListView',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.showListView',
     () => util.setVSCodeWorkspaceSwitcherViewContainerTreeViewShow(false)));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.expandTreeView',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.expandTreeView',
     () => util.expandTreeView()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.collapseTreeView',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.collapseTreeView',
     () => util.collapseTreeView()));
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.showTreeView',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.showTreeView',
     () => util.setVSCodeWorkspaceSwitcherViewContainerTreeViewShow(true)));
 
   disposables.push(util.listenForConfigurationChanges());
@@ -58,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   createTreeViews(treeDataProvider);
 
-  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcher.treeData.refresh',
+  disposables.push(vscode.commands.registerCommand('vscodeWorkspaceSwitcherWithTmux.treeData.refresh',
     () => treeDataProvider.refresh()));
 
   context.subscriptions.push(...disposables);
@@ -78,8 +78,8 @@ export function deactivate() { }
 
 function createTreeViews(treeDataProvider: TreeDataProvider) {
   const treeViewOptions = { treeDataProvider: treeDataProvider };
-  const activityBarTreeView = vscode.window.createTreeView('vscodeWorkspaceSwitcherViewInActivityBar', treeViewOptions);;
-  const explorerTreeView = vscode.window.createTreeView('vscodeWorkspaceSwitcherViewInExplorer', treeViewOptions);
+  const activityBarTreeView = vscode.window.createTreeView('vscodeWorkspaceSwitcherWithTmuxViewInActivityBar', treeViewOptions);;
+  const explorerTreeView = vscode.window.createTreeView('vscodeWorkspaceSwitcherWithTmuxViewInExplorer', treeViewOptions);
 
   activityBarTreeView.onDidExpandElement(
     <(event: vscode.TreeViewExpansionEvent<vscode.TreeItem>) => void>treeDataProvider.onFolderExpanded);

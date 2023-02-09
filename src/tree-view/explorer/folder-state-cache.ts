@@ -74,5 +74,5 @@ export function collapseAll() {
 }
 
 function getCachePath(): string {
-  return path.join(os.homedir(), '.vscode-workspace-switcher', 'folder-state-cache.json');
+  return path.join(os.homedir(), '.vscode-workspace-switcher-with-tmux', 'folder-state-cache.json');
 }

@@ -10,7 +10,7 @@ import * as cp from "child_process";
 import { WorkspaceEntry } from './model/workspace-entry';
 
 export function getWorkspaceEntryFolders(paths: string[] | null = null): path.ParsedPath[] {
-  paths = paths || <string[]>vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').get('paths');
+  paths = paths || <string[]>vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').get('paths');
 
   if (!paths || !paths.length) {
     return [];
@@ -150,19 +150,19 @@ export function openFolderWorkspaces(folderPath: string) {
 
 export function listenForConfigurationChanges(): vscode.Disposable {
   return vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
-    if (event.affectsConfiguration('vscodeWorkspaceSwitcher.paths')) {
+    if (event.affectsConfiguration('vscodeWorkspaceSwitcherWithTmux.paths')) {
       setVSCodeWorkspaceSwitcherViewContainersShow();
 
       refreshTreeData();
-    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcher.showInActivityBar')) {
+    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcherWithTmux.showInActivityBar')) {
       setVSCodeWorkspaceSwitcherViewInActivityBarShow();
-    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcher.showInExplorer')) {
+    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcherWithTmux.showInExplorer')) {
       setVSCodeWorkspaceSwitcherViewInExplorerShow();
-    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcher.showDeleteWorkspaceButton')) {
+    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcherWithTmux.showDeleteWorkspaceButton')) {
       setVSCodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow();
 
       refreshTreeData();
-    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcher.showTreeView')) {
+    } else if (event.affectsConfiguration('vscodeWorkspaceSwitcherWithTmux.showTreeView')) {
       setVSCodeWorkspaceSwitcherViewContainerTreeViewShow();
 
       refreshTreeData();
@@ -171,40 +171,40 @@ export function listenForConfigurationChanges(): vscode.Disposable {
 }
 
 export function setVSCodeWorkspaceSwitcherViewContainersShow() {
-  const vscodeWorkspaceSwitcherViewContainersShow = !!getWorkspaceEntryFolders().length;
+  const vscodeWorkspaceSwitcherWithTmuxViewContainersShow = !!getWorkspaceEntryFolders().length;
 
-  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherViewContainersShow',
-    vscodeWorkspaceSwitcherViewContainersShow);
+  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherWithTmuxViewContainersShow',
+    vscodeWorkspaceSwitcherWithTmuxViewContainersShow);
 }
 
 export function setVSCodeWorkspaceSwitcherViewInActivityBarShow() {
-  const vscodeWorkspaceSwitcherViewInActivityBarShow =
-    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').get('showInActivityBar');
+  const vscodeWorkspaceSwitcherWithTmuxViewInActivityBarShow =
+    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').get('showInActivityBar');
 
-  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherViewInActivityBarShow',
-    vscodeWorkspaceSwitcherViewInActivityBarShow);
+  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherWithTmuxViewInActivityBarShow',
+    vscodeWorkspaceSwitcherWithTmuxViewInActivityBarShow);
 }
 
 export function setVSCodeWorkspaceSwitcherViewInExplorerShow() {
-  const vscodeWorkspaceSwitcherViewInExplorerShow =
-    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').get('showInExplorer');
+  const vscodeWorkspaceSwitcherWithTmuxViewInExplorerShow =
+    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').get('showInExplorer');
 
-  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherViewInExplorerShow',
-    vscodeWorkspaceSwitcherViewInExplorerShow);
+  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherWithTmuxViewInExplorerShow',
+    vscodeWorkspaceSwitcherWithTmuxViewInExplorerShow);
 }
 
 export function setVSCodeWorkspaceSwitcherViewContainerTreeViewShow(value?: boolean) {
   if (value === undefined || value === null) {
     value = getVSCodeWorkspaceSwitcherViewContainerTreeViewShow();
   } else {
-    vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').update('showTreeView', value, true);
+    vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').update('showTreeView', value, true);
   }
 
-  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherViewContainerTreeViewShow', value);
+  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow', value);
 }
 
 export function getVSCodeWorkspaceSwitcherViewContainerTreeViewShow(): boolean {
-  return !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').get('showTreeView');
+  return !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').get('showTreeView');
 }
 
 export function expandTreeView() {
@@ -220,15 +220,15 @@ export function collapseTreeView() {
 }
 
 export function setVSCodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow() {
-  const vscodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow =
-    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcher').get('showDeleteWorkspaceButton');
+  const vscodeWorkspaceSwitcherWithTmuxViewContainerDeleteWorkspaceButtonShow =
+    !!vscode.workspace.getConfiguration('vscodeWorkspaceSwitcherWithTmux').get('showDeleteWorkspaceButton');
 
-  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow',
-    vscodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow);
+  vscode.commands.executeCommand('setContext', 'vscodeWorkspaceSwitcherWithTmuxViewContainerDeleteWorkspaceButtonShow',
+    vscodeWorkspaceSwitcherWithTmuxViewContainerDeleteWorkspaceButtonShow);
 }
 
 export function refreshTreeData() {
-  vscode.commands.executeCommand('vscodeWorkspaceSwitcher.treeData.refresh');
+  vscode.commands.executeCommand('vscodeWorkspaceSwitcherWithTmux.treeData.refresh');
 }
 
 export function closeWorkspace() {

@@ -1,10 +1,10 @@
-# vscode-workspace-switcher
+# vscode-workspace-switcher-with-tmux
 
-Easily switch between workspaces
+Easily switch between workspaces with tmux
 
 ## How to use
 
-1. Set the extension's configuration option `vscodeWorkspaceSwitcher.paths` to an array of folder globs, representing the folders where your `.code-workspace` files are stored
+1. Set the extension's configuration option `vscodeWorkspaceSwitcherWithTmux.paths` to an array of folder globs, representing the folders where your `.code-workspace` files are stored
 2. Save a workspace file (`.code-workspace`)
     * Use the `W`-shaped icon in the Activity Bar and then click on the icon the view's title bar,
     * or, use the extension's subsection in Explorer, in the same way,
@@ -25,16 +25,16 @@ When using a `folder/name` path as the workspace's file name, the `folder` prefi
 
 This extension contributes the following settings:
 
-* `vscodeWorkspaceSwitcher.paths`
+* `vscodeWorkspaceSwitcherWithTmux.paths`
     * Array of folder globs, representing the folders where your `.code-workspace` files are stored
     * These folder globs will also be used to select where to create a `.code-workspace` file for the current workspace
-* `vscodeWorkspaceSwitcher.showInActivityBar`
+* `vscodeWorkspaceSwitcherWithTmux.showInActivityBar`
     * Boolean controlling whether or not the workspaces will be shown in a separate view in the Activity Bar
-* `vscodeWorkspaceSwitcher.showInExplorer`
+* `vscodeWorkspaceSwitcherWithTmux.showInExplorer`
     * Boolean controlling whether or not the workspaces will be shown in a subsection in the Explorer
-* `vscodeWorkspaceSwitcher.showDeleteWorkspaceButton`
+* `vscodeWorkspaceSwitcherWithTmux.showDeleteWorkspaceButton`
     * Boolean controlling whether or not a workspace entry's `Delete Workspace` button is shown in the Acitivity Bar or in the Explorer
-* `vscodeWorkspaceSwitcher.showTreeView`
+* `vscodeWorkspaceSwitcherWithTmux.showTreeView`
     * Boolean controlling whether to show the list view or the tree view in the Acitivity Bar or in the Explorer
 
 ## Commands
@@ -58,10 +58,10 @@ This extension contributes the following commands:
 
 * Activity Bar
     * The `W`-shaped icon in the Activity Bar toggles the workspaces as a list or as a tree view
-    * The icon's visibility can be controlled through the `vscodeWorkspaceSwitcher.showInActivityBar` extension setting
+    * The icon's visibility can be controlled through the `vscodeWorkspaceSwitcherWithTmux.showInActivityBar` extension setting
 * Explorer
     * There is a subsection in Explorer which shows the workspaces as a list or as a tree view
-    * The subsection's visibility can be controlled through the `vscodeWorkspaceSwitcher.showInExplorer` extension setting
+    * The subsection's visibility can be controlled through the `vscodeWorkspaceSwitcherWithTmux.showInExplorer` extension setting
 * List view buttons
 
     <img src="./doc/list-view.png" width="400"/>
@@ -93,5 +93,5 @@ This extension contributes the following key bindings:
 
 ## Dependencies
 
-* `fast-glob` is used for file name globbing of the paths set through the `vscodeWorkspaceSwitcher.paths` setting
+* `fast-glob` is used for file name globbing of the paths set through the `vscodeWorkspaceSwitcherWithTmux.paths` setting
 * `mkdirp` is used when saving a new workspace file and a `folder/name` path is used

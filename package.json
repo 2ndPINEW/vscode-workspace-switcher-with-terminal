@@ -1,16 +1,16 @@
 {
-  "name": "vscode-workspace-switcher",
-  "displayName": "vscode-workspace-switcher",
+  "name": "vscode-workspace-switcher-with-tmux",
+  "displayName": "vscode-workspace-switcher-with-tmux",
   "description": "Easily switch between workspaces",
   "version": "1.15.3",
   "publisher": "sadesyllas",
-  "homepage": "https://github.com/sadesyllas/vscode-workspace-switcher",
+  "homepage": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sadesyllas/vscode-workspace-switcher.git"
+    "url": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux.git"
   },
   "bugs": {
-    "url": "https://github.com/sadesyllas/vscode-workspace-switcher/issues"
+    "url": "https://github.com/sadesyllas/vscode-workspace-switcher-with-tmux/issues"
   },
   "engines": {
     "vscode": "^1.32.0"
@@ -31,29 +31,29 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "vscode-workspace-switcher configuration",
+      "title": "vscode-workspace-switcher-with-tmux configuration",
       "properties": {
-        "vscodeWorkspaceSwitcher.paths": {
+        "vscodeWorkspaceSwitcherWithTmux.paths": {
           "type": "array",
           "default": [],
           "description": "Paths of folders where `.code-workspace` files can be saved and then read from"
         },
-        "vscodeWorkspaceSwitcher.showInActivityBar": {
+        "vscodeWorkspaceSwitcherWithTmux.showInActivityBar": {
           "type": "boolean",
           "default": true,
           "description": "Whether or not to show the activity bar tree view container"
         },
-        "vscodeWorkspaceSwitcher.showInExplorer": {
+        "vscodeWorkspaceSwitcherWithTmux.showInExplorer": {
           "type": "boolean",
           "default": true,
           "description": "Whether or not to show the list of workspaces in the explorer tree view container"
         },
-        "vscodeWorkspaceSwitcher.showDeleteWorkspaceButton": {
+        "vscodeWorkspaceSwitcherWithTmux.showDeleteWorkspaceButton": {
           "type": "boolean",
           "default": true,
           "description": "Whether or not to show the `Delete Workspace` button in view containers"
         },
-        "vscodeWorkspaceSwitcher.showTreeView": {
+        "vscodeWorkspaceSwitcherWithTmux.showTreeView": {
           "type": "boolean",
           "default": false,
           "description": "Show the workspace entries as a tree of paths in view containers"
@@ -62,7 +62,7 @@
     },
     "commands": [
       {
-        "command": "vscodeWorkspaceSwitcher.saveWorkspace",
+        "command": "vscodeWorkspaceSwitcherWithTmux.saveWorkspace",
         "title": "Save Workspace",
         "icon": {
           "light": "assets/icons/light/save.svg",
@@ -70,11 +70,11 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.openWorkspace",
+        "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspace",
         "title": "Open Workspace"
       },
       {
-        "command": "vscodeWorkspaceSwitcher.openWorkspaceInNewWindow",
+        "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspaceInNewWindow",
         "title": "Open Workspace in New Window",
         "icon": {
           "light": "assets/icons/light/open-in-new-window.svg",
@@ -82,7 +82,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.deleteWorkspace",
+        "command": "vscodeWorkspaceSwitcherWithTmux.deleteWorkspace",
         "title": "Delete Workspace",
         "icon": {
           "light": "assets/icons/light/delete.svg",
@@ -90,7 +90,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.openFolderWorkspaces",
+        "command": "vscodeWorkspaceSwitcherWithTmux.openFolderWorkspaces",
         "title": "Open Folder Workspaces",
         "icon": {
           "light": "assets/icons/light/open-all.svg",
@@ -98,7 +98,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.reloadWorkspaces",
+        "command": "vscodeWorkspaceSwitcherWithTmux.reloadWorkspaces",
         "title": "Reload Workspaces",
         "icon": {
           "light": "assets/icons/light/reload.svg",
@@ -106,7 +106,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.closeWorkspace",
+        "command": "vscodeWorkspaceSwitcherWithTmux.closeWorkspace",
         "title": "Close Workspace",
         "icon": {
           "light": "assets/icons/light/close.svg",
@@ -114,7 +114,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.showListView",
+        "command": "vscodeWorkspaceSwitcherWithTmux.showListView",
         "title": "Show List View",
         "icon": {
           "light": "assets/icons/light/list.svg",
@@ -122,7 +122,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.expandTreeView",
+        "command": "vscodeWorkspaceSwitcherWithTmux.expandTreeView",
         "title": "Expand Tree View",
         "icon": {
           "light": "assets/icons/light/expand.svg",
@@ -130,7 +130,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.collapseTreeView",
+        "command": "vscodeWorkspaceSwitcherWithTmux.collapseTreeView",
         "title": "Collapse Tree View",
         "icon": {
           "light": "assets/icons/light/collapse.svg",
@@ -138,7 +138,7 @@
         }
       },
       {
-        "command": "vscodeWorkspaceSwitcher.showTreeView",
+        "command": "vscodeWorkspaceSwitcherWithTmux.showTreeView",
         "title": "Show Tree View",
         "icon": {
           "light": "assets/icons/light/tree.svg",
@@ -149,131 +149,131 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "vscodeWorkspaceSwitcherViewContainer",
+          "id": "vscodeWorkspaceSwitcherWithTmuxViewContainer",
           "title": "Workspace Switcher",
           "icon": "assets/icons/dark/tree-container.svg",
-          "when": "vscodeWorkspaceSwitcherExplorerShow && vscodeWorkspaceSwitcherViewContainersShow"
+          "when": "vscodeWorkspaceSwitcherWithTmuxExplorerShow && vscodeWorkspaceSwitcherWithTmuxViewContainersShow"
         }
       ]
     },
     "views": {
-      "vscodeWorkspaceSwitcherViewContainer": [
+      "vscodeWorkspaceSwitcherWithTmuxViewContainer": [
         {
-          "id": "vscodeWorkspaceSwitcherViewInActivityBar",
+          "id": "vscodeWorkspaceSwitcherWithTmuxViewInActivityBar",
           "name": "Workspaces",
-          "when": "vscodeWorkspaceSwitcherViewInActivityBarShow && vscodeWorkspaceSwitcherViewContainersShow"
+          "when": "vscodeWorkspaceSwitcherWithTmuxViewInActivityBarShow && vscodeWorkspaceSwitcherWithTmuxViewContainersShow"
         }
       ],
       "explorer": [
         {
-          "id": "vscodeWorkspaceSwitcherViewInExplorer",
+          "id": "vscodeWorkspaceSwitcherWithTmuxViewInExplorer",
           "name": "Workspaces",
-          "when": "vscodeWorkspaceSwitcherViewInExplorerShow && vscodeWorkspaceSwitcherViewContainersShow"
+          "when": "vscodeWorkspaceSwitcherWithTmuxViewInExplorerShow && vscodeWorkspaceSwitcherWithTmuxViewContainersShow"
         }
       ]
     },
     "menus": {
       "view/title": [
         {
-          "command": "vscodeWorkspaceSwitcher.showListView",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.showListView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.expandTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.expandTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@2"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.collapseTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.collapseTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@3"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.showTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && !vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.showTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && !vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.saveWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar",
+          "command": "vscodeWorkspaceSwitcherWithTmux.saveWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar",
           "group": "navigation@4"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.reloadWorkspaces",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar",
+          "command": "vscodeWorkspaceSwitcherWithTmux.reloadWorkspaces",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar",
           "group": "navigation@5"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.closeWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar",
+          "command": "vscodeWorkspaceSwitcherWithTmux.closeWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar",
           "group": "navigation@6"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.showListView",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.showListView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.expandTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.expandTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@2"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.collapseTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.collapseTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@3"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.showTreeView",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && !vscodeWorkspaceSwitcherViewContainerTreeViewShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.showTreeView",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && !vscodeWorkspaceSwitcherWithTmuxViewContainerTreeViewShow",
           "group": "navigation@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.saveWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer",
+          "command": "vscodeWorkspaceSwitcherWithTmux.saveWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer",
           "group": "navigation@4"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.reloadWorkspaces",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer",
+          "command": "vscodeWorkspaceSwitcherWithTmux.reloadWorkspaces",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer",
           "group": "navigation@5"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.closeWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer",
+          "command": "vscodeWorkspaceSwitcherWithTmux.closeWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer",
           "group": "navigation@6"
         }
       ],
       "view/item/context": [
         {
-          "command": "vscodeWorkspaceSwitcher.openWorkspaceInNewWindow",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && viewItem != folder",
+          "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspaceInNewWindow",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && viewItem != folder",
           "group": "inline@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.deleteWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && viewItem != folder && vscodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.deleteWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && viewItem != folder && vscodeWorkspaceSwitcherWithTmuxViewContainerDeleteWorkspaceButtonShow",
           "group": "inline@2"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.openFolderWorkspaces",
-          "when": "view == vscodeWorkspaceSwitcherViewInActivityBar && viewItem == folder",
+          "command": "vscodeWorkspaceSwitcherWithTmux.openFolderWorkspaces",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInActivityBar && viewItem == folder",
           "group": "inline@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.openWorkspaceInNewWindow",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && viewItem != folder",
+          "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspaceInNewWindow",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && viewItem != folder",
           "group": "inline@1"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.deleteWorkspace",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && viewItem != folder && vscodeWorkspaceSwitcherViewContainerDeleteWorkspaceButtonShow",
+          "command": "vscodeWorkspaceSwitcherWithTmux.deleteWorkspace",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && viewItem != folder && vscodeWorkspaceSwitcherWithTmuxViewContainerDeleteWorkspaceButtonShow",
           "group": "inline@2"
         },
         {
-          "command": "vscodeWorkspaceSwitcher.openFolderWorkspaces",
-          "when": "view == vscodeWorkspaceSwitcherViewInExplorer && viewItem == folder",
+          "command": "vscodeWorkspaceSwitcherWithTmux.openFolderWorkspaces",
+          "when": "view == vscodeWorkspaceSwitcherWithTmuxViewInExplorer && viewItem == folder",
           "group": "inline@1"
         }
       ]
@@ -281,15 +281,15 @@
     "keybindings": [
       {
         "key": "Ctrl-k Shift-w",
-        "command": "vscodeWorkspaceSwitcher.saveWorkspace"
+        "command": "vscodeWorkspaceSwitcherWithTmux.saveWorkspace"
       },
       {
         "key": "Ctrl-k w",
-        "command": "vscodeWorkspaceSwitcher.openWorkspace"
+        "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspace"
       },
       {
         "key": "Ctrl-k Ctrl-w",
-        "command": "vscodeWorkspaceSwitcher.openWorkspaceInNewWindow"
+        "command": "vscodeWorkspaceSwitcherWithTmux.openWorkspaceInNewWindow"
       }
     ]
   },

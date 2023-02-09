@@ -37,7 +37,7 @@
     - Fix duplicate entries issue (#18, #20)
 
 - ## v1.10.4
-    - Fix vscodeWorkspaceSwitcher.paths recursive glob support (#18, #19)
+    - Fix vscodeWorkspaceSwitcherWithTmux.paths recursive glob support (#18, #19)
 
 - ## v1.10.3
     - Replace glob-fs with fast-glob (#17)
@@ -49,7 +49,7 @@
     - Include `node_modules` in extension package
 
 - ## v1.10.0
-    - Use `statSync` to support symbolic links in vscodeWorkspaceSwitcher.paths (#15)
+    - Use `statSync` to support symbolic links in vscodeWorkspaceSwitcherWithTmux.paths (#15)
 
 - ## v1.9.0
     - Try to guess the path to VS Code's executable script in Windows
@@ -61,7 +61,7 @@
     - Automatically create folders when saving a workspace with a `folder/name` path
 
 - ## v1.6.0
-    - Add support for wildcards in vscodeWorkspaceSwitcher.paths (#8)
+    - Add support for wildcards in vscodeWorkspaceSwitcherWithTmux.paths (#8)
 
 - ## v1.5.1
     - Quote paths to workspaces (#7)
@@ -91,4 +91,4 @@
     - Refactor the code for displaying the workspaces menu
 
 - ## v1.0.0
-    - Implement vscode-workspace-switcher
+    - Implement vscode-workspace-switcher-with-tmux
